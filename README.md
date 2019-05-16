@@ -92,6 +92,12 @@ typedef struct
 
 ### Band Table 
 
+<style>
+td {
+  font-size: 50px
+}
+</style>
+
 | Band name | Initial Freq.  | Final Freq. | Last Freq. | offset | Freq Unit | Divider | Dec. | Initial Step Index | Final Step Index | Default |
 | --------- | ----------------------- | -------------------- | ---------------- | ---------------- | -----------------| --------------- |------------------ | ---------------- | ---------------- | -----------|  
 | MW   | 50000000 | 170000000 | 50000000 | 45500000 |  KHz | 100000 | 2 | 3 | 6 | 5 |
