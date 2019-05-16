@@ -92,12 +92,7 @@ typedef struct
 
 ### Band Table 
 
-<style>
-td {
-  font-size: 50px
-}
-</style>
-
+{table:border=3|cellpadding=0|cellspaceing=0|frame=void|rules=none}
 | Band name | Initial Freq.  | Final Freq. | Last Freq. | offset | Freq Unit | Divider | Dec. | Initial Step Index | Final Step Index | Default |
 | --------- | ----------------------- | -------------------- | ---------------- | ---------------- | -----------------| --------------- |------------------ | ---------------- | ---------------- | -----------|  
 | MW   | 50000000 | 170000000 | 50000000 | 45500000 |  KHz | 100000 | 2 | 3 | 6 | 5 |
@@ -110,7 +105,7 @@ td {
 | VHF2 | 13700000000 | 14400000000 | 13700000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
 | 2M  | 14400000000 | 15000000000 | 14400000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
 | VFH3 | 15000000000 | 16000000000 | 15000000000 | 1075000000  | MHz| 100000000 | 2 | 2 | 8| 5 |
-
+{table}
 
 The code below implements the band table of the VFO for the radio used here. 
 The values amBroadcast, fmBroadcast and NULL are function that execute some specific actions for the band. When the value is NULL, no action will be executed.  
