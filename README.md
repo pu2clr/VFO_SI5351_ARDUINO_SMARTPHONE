@@ -7,20 +7,17 @@ April, 2019
 
 ## Table of contents
 
-1. [Introduction](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#introduction)
-2. [Display layout](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#display-layout)
-3. [Schematic used with Arduino Atmega328 (UNO, Pro Mini, Nano etc)](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#schematic-used-with-arduino-atmega328-uno-pro-mini-nano-etc)
-4. [Schematic used with Arduino ATmega32U4 (Micro)](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#schematic-used-with-arduino-atmega32u4-micro)
-5. [Radio based on CD2003GP](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#radio-based-on-cd2003gp)
-6. [Arduino Sketch](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#arduino-sketch)
-7. [Step Table](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#step-table)
-8. [Source folder](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP/source)
-   1. [Arduino sketch for Atmega328 - si5351_vfoCD2003GP_atmega328.ino](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP/source/si5351_vfoCD2003GP_atmega328)
-   2. [Arduino sketch for Atmega32U4 - si5351_vfoCD2003GP_atmega32u4.ino](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP/source/si5351_vfoCD2003GP_atmega32u4) 
-   3. [Arduino sketch Atmega 328 and Bluetooth BLE-HM10 - si5351_vfo_ble_atmega328.ino](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP/source/si5351_vfo_ble_atmega328)
-   4. [Remote control Mobile Application for Android and iOS](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP/source/vfoMobileApplication)
-9. [Videos](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#v%C3%ADdeos)
-
+1. [Introduction]()
+2. [Display layout]()
+3. [Schematic used with Arduino Atmega328 (UNO, Pro Mini, Nano etc)]()
+4. [Arduino Sketch]()
+5. [Step Table]()
+6. [Source folder]()
+   1. [Arduino sketch for Atmega328 - si5351_vfoCD2003GP_atmega328.ino]()
+   2. [Arduino sketch for Atmega32U4 - si5351_vfoCD2003GP_atmega32u4.ino]() 
+   3. [Arduino sketch Atmega 328 and Bluetooth BLE-HM10 - si5351_vfo_ble_atmega328.ino]()
+   4. [Remote control Mobile Application for Android and iOS]()
+7. [Videos]()
 
 
 ## Introduction
@@ -37,77 +34,10 @@ This project implements a VFO and BFO  using an Arduino with Si5351 signal gener
 | ![Displau photo 3](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_03.png)| ![Displau photo 4](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_04.png) |
 
 
-## Schematic used with Arduino Atmega328 (UNO, Pro Mini, Nano etc)
+## Schematic - Arduino Atmega328 (UNO, Pro Mini, Nano etc)
 
-![Schematic used with Arduino Atmega328](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/schematic/vfobfo_ir_schematic_atemega328.png)
+![Schematic used with Arduino Atmega328](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/schematic/vfobfo_schematic_atmega328.png)
 
-__Click [here](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/source/si5351_vfoCD2003GP_atmega328/si5351_vfoCD2003GP_atmega328.ino) to see the sketch used on Arduino Atmega328 (schematic above).__
-
-
-
-## Schematic used with Arduino ATmega32U4 (Micro)
-
-![Schematic used with Arduino Atmega328](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/schematic/bfo_schematic.png)
-
-__Click [here](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/source/si5351_vfoCD2003GP_atmega32u4/si5351_vfoCD2003GP_atmega32u4.ino) to see the sketch used on Arduino ATmega32U4 (schematic above).__ 
-
-
-## Radio based on CD2003GP
-
-#### CD2003GP Block Diagram
-
-![Photo 1 - CD2003GP](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/CD2003GP_block_diagram_01.png)
-
-[Source - CD2003GP Datasheet](http://www.datasheetcafe.com/cd2003gp-datasheet-pdf/)
-
-#### Application Citcuit
-
-![Photo 2 - CD2003GP](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/CD2003GP_application_circuit.png)
-
-[Source - CD2003GP Datasheet](http://www.datasheetcafe.com/cd2003gp-datasheet-pdf/)
-
-
-#### Inexpensive Commercial Radio
-![Photo 3 - Inexpensive commercial radio](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/inexpensive_receiver_01.jpg)
-
-
-
-#### Radio Modification
-
-
-This experiment was based on a FM/AM commercial radio for receiving AM/FM broadcast station. 
-In my first test, I isolated the pin 13 of the CD2003GP (could be also TA2003) and injected the signal from the si5351 output (CLK0). To connect the oscillator to pin 13, used a 15pf capacitor. It is the same capacitor used by the radio oscillator.
-
-
-
-
-![Photo 3 - Motification ](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/inexpensive_receiver_02.jpg)
-
-
-
-#### Sugested Modification
-
-__IMPORTANTE__: Do not do this if you do not feel safe in doing so.
-
-![Photo 2 - CD2003GP](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/CD2003GP_application_circuit_modification.png)
-
-
-![Photo 3 - Motification ](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/inexpensive_receiver_03.jpg)
-
-
-
-#### Coupling
-
-In my first test, I isolated the pin 13 of the CD2003GP (could be also TA2003) from the radio board and injected the signal from the si5351 output (CLK0). To connect the oscillator to pin 13, used a 15pf capacitor. It is the same capacitor used by the radio oscillator. The AM section was disabled in the receiver for this test.
-
-
-![Coupling 01](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/schematic/coupling_01.png)
-
-
-![Coupling 02](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/schematic/coupling_02.png)
-
-
-![Coupling 03](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/schematic/coupling_03.png)
 
 
 
@@ -183,7 +113,6 @@ Band band[] = {
     {"2M  ", 14400000000LLU, 15000000000LLU, 1075000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, NULL},
     {"VFH3", 15000000000LLU, 16000000000LLU, 1075000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, NULL}};
 ```
-
 
 
 ### Step Table 
@@ -288,6 +217,7 @@ The code below shows the use of callback function when the use changes the band
     elapsedButton = millis();
   }
 ```  
+
 
 
 ## Vídeos 
