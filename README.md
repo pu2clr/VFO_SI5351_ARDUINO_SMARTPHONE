@@ -25,14 +25,7 @@ April, 2019
 
 ## Introduction
 
-This folder has an example of using the VFO and BFO project with an inexpencive radio based on CD2003GP chip. A $6 commercial radio for receiving AM/FM broadcast was modified to be tuned by the VFO with si5351 controlled by Arduino. This experiment uses just the FM feature of the radio. 
-
-
-The original Arduino sketch was modified to make make this experiment easyest. See below.
-
-- The layout of the OLED display was adjusted 
-- The amount of bands was reduced from 27 to 8. See [Band table below](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#band-table)
-- Each band has a different behavior. That is, frequency unit shown on the display and steps more suitable for the specific band. See [Band table below](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP#band-table)
+This project implements a VFO and BFO  using an Arduino with Si5351 signal generator. You can controll the VFO using an encoder and also a SmartPhone via a mobile application developed here for this purpose. 
 
 
 ### Display Layout
@@ -40,8 +33,8 @@ The original Arduino sketch was modified to make make this experiment easyest. S
 
 | Layout |  Layout |
 | ------ |  ------ |
-| ![Displau photo 1](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/OLED_01.png)| ![Displau photo 2](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/OLED_02.png) |
-| ![Displau photo 3](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/OLED_03.png)| ![Displau photo 4](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/blob/master/Experiments/VFO_RADIO_CD2003GP/images/OLED_04.png) |
+| ![Displau photo 1](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_01.png)| ![Displau photo 2](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_02.png) |
+| ![Displau photo 3](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_03.png)| ![Displau photo 4](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_04.png) |
 
 
 ## Schematic used with Arduino Atmega328 (UNO, Pro Mini, Nano etc)
