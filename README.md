@@ -24,7 +24,7 @@ This project implements a VFO and BFO  using an Arduino with Si5351 signal gener
 
 The Si5351 is an I2C configurable clock generator that is very appropriate for receivers and transceivers projects in amateur radio applications. See more on [Silicon Labs documentation](https://www.silabs.com/documents/public/data-sheets/Si5351-B.pdf).
 
- This project uses two outputs of the Si53512.  The VFO  uses the output 0 (CLK0) and can oscillate from 100KHz to 160MHz. The BFO uses the output 1 (CLK1) of Si5351 and it was configured to oscillate from 452KHz to 458KHz (you can modigy the BFO range to any other from 8KHz to 160MHz).  
+ This project uses two outputs of the Si5351.  The VFO  uses the output 0 (CLK0) and can oscillate from 100KHz to 160MHz. The BFO uses the output 1 (CLK1) of Si5351 and it was configured to oscillate from 452KHz to 458KHz (you can modigy the BFO range to any other from 8KHz to 160MHz).  
 
  The Arduino sketch was projected to allow the user modify easelly the band, range and step configurations.
  See Arduino Sketch below. 
@@ -52,8 +52,9 @@ The user can control the VFO and BFO by using three buttons and an encoder. The 
 
 ## Arduino Sketch 
 
-Some original features of the VFO and BFO project was modified to adapt it better to the radio based on CD2003GP. The main modification was the band behaviour. The VFO implemented on Arduino Sketch has the follow information:  
-
+The VFO and BFO project cen be easily modified to adapt it better to your needs. 
+The main feature of the Sketch is the table band. You can modify the amount of bands and ranges. The band information is shown below. 
+ 
 - __Band name__ - Band name that will show on display;
 - __Initial Freq.__ -  Lowest band frequency (1/100 Hz);
 - __Final Freq.__ - highest frequency band (1/100 Hz);
