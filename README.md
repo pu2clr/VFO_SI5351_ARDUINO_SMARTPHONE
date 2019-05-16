@@ -26,7 +26,7 @@ The Si5351 is an I2C configurable clock generator that is very appropriate for r
 
  This project uses two outputs of the Si5351.  The VFO  uses the output 0 (CLK0) and can oscillate from 100KHz to 160MHz. The BFO uses the output 1 (CLK1) of Si5351 and it was configured to oscillate from 452KHz to 458KHz (you can modigy the BFO range to any other from 8KHz to 160MHz).  
 
- The Arduino sketch was projected to allow the user modify easelly the band, range and step configurations.
+ The Arduino sketch was projected to allow the user modify easly the band, range and step configurations.
  See Arduino Sketch below. 
 
 
@@ -173,8 +173,9 @@ Step step[] = {
 ### Callback functions
 
 This sketch uses callback functions to complement specific actions for a specific band.
-For example, you will need to set the PIN 14 of the CD2003GP to HIGH if you want to work with FM.
-In contrast, you need to set the PIN 14 to LOW if you want to work with AM.
+For example, you might need to turn on a LED, start a relay or set up a filter when yiu select a band. 
+If the device that will use this VFO/BFO has different behaviours for different band, you might want use callback functions.  See Band table for more information. 
+
 
 The code below shows the callback functions declaration
 
@@ -193,8 +194,7 @@ The callback functions above are referenced in band database (see Band band[]) a
 ```cpp
 // Callback implementation
 
-// Doing something spefict for AM
-// Example: set Pin 14 of the CD2003GP to LOW; switch filter, turn AM LED on etc
+// Doing something spefict for MW band
 void amBroadcast()
 {
   // TO DO
@@ -202,7 +202,6 @@ void amBroadcast()
 }
 
 // Doing something spefict for FM
-// Example: set Pin 14 of the CD2003GP to HIGH; turn FM LED on etc
 void fmBroadcast()
 {
   // TO DO
