@@ -126,6 +126,12 @@ Band band[] = {
 | VFH3 | 15000000000 | 16000000000 | 15000000000 | 1075000000  | MHz| 100000000 | 2 | 2 | 8| 5 | NULL |
 
 
+{table-plus:border=0|class=''}
+|| header1 || header 2 ||
+| cell11 | cell 12 | 
+| cell 21 | cell 22 |
+{table-plus}
+
 
 ### Step Table 
 
