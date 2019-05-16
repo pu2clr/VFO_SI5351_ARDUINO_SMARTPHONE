@@ -182,7 +182,7 @@ The code below shows the callback functions declaration
 ```cpp
 // Callback functions declarations
 // Depending on the selected band, you may want to perform specific actions
-// The functions declared below will do something for AM and FM BAND. See implementation later.
+// The functions declared below will do something for MW and FM BAND. See implementation later.
 // You can implement callback function for other bands
 void amBroadcast(); // See implementation later.
 void fmBroadcast(); // See implementation later.
@@ -214,7 +214,7 @@ The code below shows the use of callback function when the use changes the band
 ```cpp
  if (digitalRead(BUTTON_BAND) == HIGH && (millis() - elapsedButton) > MIN_ELAPSED_TIME)
   {
-    currentBand = (currentBand < lastBand) ? (currentBand + 1) : 0; // Is the last band? If so, go to the first band (AM). Else. Else, next band.
+    currentBand = (currentBand < lastBand) ? (currentBand + 1) : 0; // Is the last band? If so, go to the first band (AM). Else, next band.
     vfoFreq = band[currentBand].minFreq;
     currentStep = band[currentBand].starStepIndex;
 
