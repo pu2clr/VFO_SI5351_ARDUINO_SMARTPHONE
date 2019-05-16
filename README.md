@@ -65,7 +65,7 @@ The main feature of the Sketch is the table of band. You can modify the amount o
 - __decimals__ - number of decimal places after the comma;
 - __Initial Step Index__ - Lowest step index used for the band (see Step table)
 - __Final Step Index__ - Highest step index used for the band (see Step table) 
-- __Start Step Index__ - Default step index used for the band (see Step table)
+- __Last Step Index__ - Default step index or last step index used for the band (see Step table)
 - __callback function__ - point to the function that handles specific things for the band
 
 The implementation of the band information is shown below.  An array of band with this structure is implemmented 
@@ -89,25 +89,8 @@ typedef struct
  } Band;
 ```
 
-
-### Band Table 
-
-| Band name | Initial Freq.  | Final Freq. | Last Freq. | offset | Freq Unit | Divider | Dec. | Initial Step Index | Final Step Index | Default |
-| --------- | ----------------------- | -------------------- | ---------------- | ---------------- | -----------------| --------------- |------------------ | ---------------- | ---------------- | -----------|  
-| MW   | 50000000 | 170000000 | 50000000 | 45500000 |  KHz | 100000 | 2 | 3 | 6 | 5 |
-| SW1  | 170000000 | 1000000000 | 170000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 |
-| SW2  | 1000000000 | 2000000000 | 1000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 |
-| SW3  | 2000000000 | 3000000000 | 2000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 |
-| VHF1 | 3000000000 | 7600000000 | 3000000000 | 45500000  | KHz | 100000 | 2 | 2 | 7 | 3 |
-| FM   | 7600000000 | 10800000000 | 7600000000 | 1075000000  | MHz |  100000000 | 1 | 6 | 8 | 7 |
-| AIR  | 10800000000 | 13700000000 | 10800000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
-| VHF2 | 13700000000 | 14400000000 | 13700000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
-| 2M  | 14400000000 | 15000000000 | 14400000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
-| VFH3 | 15000000000 | 16000000000 | 15000000000 | 1075000000  | MHz| 100000000 | 2 | 2 | 8| 5 |
-
-
-The code below implements the band table of the VFO for the radio used here. 
-The values amBroadcast, fmBroadcast and NULL are function that execute some specific actions for the band. When the value is NULL, no action will be executed.  
+The code below implements the band table of the VFO for a hypothetical radio. 
+The values amBroadcast and  fmBroadcast are points to functions that will execute some specific actions for the band. When the value is NULL, no action will be executed.  
 
 ```cpp
 // Band database. You can change the band ranges if you need.
@@ -124,6 +107,24 @@ Band band[] = {
     {"2M  ", 14400000000LLU, 15000000000LLU, 1075000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, NULL},
     {"VFH3", 15000000000LLU, 16000000000LLU, 1075000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, NULL}};
 ```
+
+
+
+### Band Table 
+
+| Band name | Initial Freq.  | Final Freq. | Last Freq. | offset | Freq Unit | Divider | Dec. | Initial Step Index | Final Step Index | Default / Last Step index | Action Function |
+| --------- | ----------------------- | -------------------- | ---------------- | ---------------- | -----------------| --------------- |------------------ | ---------------- | ---------------- | -----------| -----------|  
+| MW   | 50000000 | 170000000 | 50000000 | 45500000 |  KHz | 100000 | 2 | 3 | 6 | 5 | amBroadcast |
+| SW1  | 170000000 | 1000000000 | 170000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 | amBroadcast |
+| SW2  | 1000000000 | 2000000000 | 1000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 | amBroadcast |
+| SW3  | 2000000000 | 3000000000 | 2000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 | amBroadcast |
+| VHF1 | 3000000000 | 7600000000 | 3000000000 | 45500000  | KHz | 100000 | 2 | 2 | 7 | 3 | NULL |
+| FM   | 7600000000 | 10800000000 | 7600000000 | 1075000000  | MHz |  100000000 | 1 | 6 | 8 | 7 | fmBroadcast |
+| AIR  | 10800000000 | 13700000000 | 10800000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 | NULL |
+| VHF2 | 13700000000 | 14400000000 | 13700000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 | NULL |
+| 2M  | 14400000000 | 15000000000 | 14400000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 | NULL |
+| VFH3 | 15000000000 | 16000000000 | 15000000000 | 1075000000  | MHz| 100000000 | 2 | 2 | 8| 5 | NULL |
+
 
 
 ### Step Table 
