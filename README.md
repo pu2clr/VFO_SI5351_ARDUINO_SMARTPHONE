@@ -1,4 +1,4 @@
-# VFO and BFO project test with an inexpencive radio based on CD2003GP 
+# VFO and BFO using Arduino with Si5351 controlled by SmartPhone
 
 ## __Documentação em Português clique [aqui](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP/Docs).__
 
@@ -7,17 +7,15 @@ April, 2019
 
 ## Table of contents
 
-1. [Introduction]()
-2. [Display layout]()
-3. [Schematic used with Arduino Atmega328 (UNO, Pro Mini, Nano etc)]()
-4. [Arduino Sketch]()
-5. [Step Table]()
-6. [Source folder]()
-   1. [Arduino sketch for Atmega328 - si5351_vfoCD2003GP_atmega328.ino]()
-   2. [Arduino sketch for Atmega32U4 - si5351_vfoCD2003GP_atmega32u4.ino]() 
-   3. [Arduino sketch Atmega 328 and Bluetooth BLE-HM10 - si5351_vfo_ble_atmega328.ino]()
-   4. [Remote control Mobile Application for Android and iOS]()
-7. [Videos]()
+1. [Introduction](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#introduction)
+2. [Display layout](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#display-layout)
+3. [Schematic used with Arduino Atmega328 (UNO, Pro Mini, Nano etc)](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#schematic---arduino-atmega328-uno-pro-mini-nano-etc)
+4. [Arduino Sketch](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#arduino-sketch)
+   1. [Band Table](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#band-table) 
+   2. [Step Table](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#step-table)
+   3. [Callback Functions](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#callback-functions)
+5. [Mobile Application]()
+6. [Videos]()
 
 
 ## Introduction
@@ -37,7 +35,6 @@ This project implements a VFO and BFO  using an Arduino with Si5351 signal gener
 ## Schematic - Arduino Atmega328 (UNO, Pro Mini, Nano etc)
 
 ![Schematic used with Arduino Atmega328](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/schematic/vfobfo_schematic_atmega328.png)
-
 
 
 
@@ -160,7 +157,7 @@ Step step[] = {
 
 
 
-## Callback functions
+### Callback functions
 
 This sketch uses callback functions to complement specific actions for a specific band.
 For example, you will need to set the PIN 14 of the CD2003GP to HIGH if you want to work with FM.
@@ -217,6 +214,10 @@ The code below shows the use of callback function when the use changes the band
     elapsedButton = millis();
   }
 ```  
+
+## Mobile Application
+
+TO DO
 
 
 
