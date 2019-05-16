@@ -8,7 +8,7 @@ April, 2019
 ## Table of contents
 
 1. [Introduction](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#introduction)
-2. [Display layout](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#display-layout)
+2. [VFO and BFO Interface](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#vfo-and-bfo-interface)
 3. [Schematic used with Arduino Atmega328 (UNO, Pro Mini, Nano etc)](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#schematic---arduino-atmega328-uno-pro-mini-nano-etc)
 4. [Arduino Sketch](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#arduino-sketch)
    1. [Band Table](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#band-table) 
@@ -32,7 +32,7 @@ The Si5351 is an I2C configurable clock generator that is very appropriate for r
 
 ## VFO and BFO interface
 
-The user can control the VFO and BFO by using three buttons and an encoder. The Dial was implemented with the OLED Display 128 x 64 Pixels White 0.96 Inch I2C. 
+The user can control the VFO and BFO by using three buttons (bands, steps and VFO / BFO switch) and an encoder. The user can also connect this VFO with an iOS or Android device and control it remotelly.  The Dial was implemented with the OLED Display 128 x 64 Pixels White 0.96 Inch I2C. 
 
 
 ### Display Layout
@@ -53,12 +53,13 @@ The user can control the VFO and BFO by using three buttons and an encoder. The 
 ## Arduino Sketch 
 
 The VFO and BFO project cen be easily modified to adapt it better to your needs. 
-The main feature of the Sketch is the table band. You can modify the amount of bands and ranges. The band information is shown below. 
+The main feature of the Sketch is the table of band. You can modify the amount of bands and ranges. The band information is shown below. 
  
 - __Band name__ - Band name that will show on display;
 - __Initial Freq.__ -  Lowest band frequency (1/100 Hz);
 - __Final Freq.__ - highest frequency band (1/100 Hz);
-- __offset__ - Shows on the display the frequency of the station and makes the signal generator to oscillate considering the IF (1/100 Hz);
+- __Last Freq.__ - Store the current frequency. Useful when the user switches the band and get back to it later (it starts with minFreq value);
+- __offset__ - Consider an IF offset.  The VFO shows on the display the real frequency of the station and makes the signal generator to oscillate considering the IF used by the radio design (1/100 Hz);
 - __Freq Unit__ - Frequency unit that will be show on the display for the current band;
 - __Divider__ - Divider used to reduce the number of digits in the display;
 - __decimals__ - number of decimal places after the comma;
@@ -67,42 +68,42 @@ The main feature of the Sketch is the table band. You can modify the amount of b
 - __Start Step Index__ - Default step index used for the band (see Step table)
 - __callback function__ - point to the function that handles specific things for the band
 
-The implementation of the band information
+The implementation of the band information is shown below.  An array of band with this structure is implemmented 
 
 ```cpp
 // Structure for Bands database
 typedef struct
 {
   char *name;
-  uint64_t minFreq; // Min. frequency value for the band (unit 0.01Hz)
-  uint64_t maxFreq; // Max. frequency value for the band (unit 0.01Hz)
+  uint64_t minFreq;       // Min. frequency value for the band (unit 0.01Hz)
+  uint64_t maxFreq;       // Max. frequency value for the band (unit 0.01Hz)
+  uint64_t lastFreq;      // Store the current frequency before change to other band (it starts with minFreq value)
   long long offset;
   char *unitFreq;         // MHz or KHz
   float divider;          // value that will be the divider of current clock (just to present on display)
   short decimals;         // number of digits after the comma
   short initialStepIndex; // Index to the initial step of incrementing
   short finalStepIndex;   // Index to the final step of incrementing
-  short starStepIndex;    // Index to start step of incrementing
-  void (*f)(void);        // pointer to the function that handles specific things for the band
-} Band;
+  short lastStepIndex;    // Index to the last step used (initial index value same index defult)
+  void (*fstart)(void);   // pointer to the function that will handle specific things for the band immediately after the band is selected
+ } Band;
 ```
-
 
 
 ### Band Table 
 
-| Band name | Initial Freq.  | Final Freq. | offset | Freq Unit | Divider | Dec. | Initial Step Index | Final Step Index | Default |
-| --------- | ----------------------- | -------------------- | ---------------- | -----------------| --------------- |------------------ | ---------------- | ---------------- | -----------|  
-| MW   | 50000000 | 170000000 | 45500000 |  KHz | 100000 | 2 | 3 | 6 | 5 |
-| SW1  | 170000000 | 1000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 |
-| SW2  | 1000000000 | 2000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 |
-| SW3  | 2000000000 | 3000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 |
-| VHF1 | 3000000000 | 7600000000 | 45500000  | KHz | 100000 | 2 | 2 | 7 | 3 |
-| FM   | 7600000000 | 10800000000 | 1075000000  | MHz |  100000000 | 1 | 6 | 8 | 7 |
-| AIR  | 10800000000 | 13700000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
-| VHF2 | 13700000000 | 14400000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
-| 2M  | 14400000000 | 15000000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
-| VFH3 | 15000000000 | 16000000000 | 1075000000  | MHz| 100000000 | 2 | 2 | 8| 5 |
+| Band name | Initial Freq.  | Final Freq. | Last Freq. | offset | Freq Unit | Divider | Dec. | Initial Step Index | Final Step Index | Default |
+| --------- | ----------------------- | -------------------- | ---------------- | ---------------- | -----------------| --------------- |------------------ | ---------------- | ---------------- | -----------|  
+| MW   | 50000000 | 170000000 | 50000000 | 45500000 |  KHz | 100000 | 2 | 3 | 6 | 5 |
+| SW1  | 170000000 | 1000000000 | 170000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 |
+| SW2  | 1000000000 | 2000000000 | 1000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 |
+| SW3  | 2000000000 | 3000000000 | 2000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 |
+| VHF1 | 3000000000 | 7600000000 | 3000000000 | 45500000  | KHz | 100000 | 2 | 2 | 7 | 3 |
+| FM   | 7600000000 | 10800000000 | 7600000000 | 1075000000  | MHz |  100000000 | 1 | 6 | 8 | 7 |
+| AIR  | 10800000000 | 13700000000 | 10800000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
+| VHF2 | 13700000000 | 14400000000 | 13700000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
+| 2M  | 14400000000 | 15000000000 | 14400000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 |
+| VFH3 | 15000000000 | 16000000000 | 15000000000 | 1075000000  | MHz| 100000000 | 2 | 2 | 8| 5 |
 
 
 The code below implements the band table of the VFO for the radio used here. 
