@@ -1,7 +1,5 @@
 # VFO and BFO using Arduino with Si5351 controlled by SmartPhone
 
-## __Documentação em Português clique [aqui](https://github.com/pu2clr/VFO_BFO_OLED_ARDUINO/tree/master/Experiments/VFO_RADIO_CD2003GP/Docs).__
-
 By PU2CLR - Ricardo Lima Caratti  - April, 2019
 
 ## Table of contents
