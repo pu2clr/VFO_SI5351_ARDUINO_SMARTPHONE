@@ -74,7 +74,7 @@ The main feature of the Sketch is the table of band. You can modify the amount o
 | __Initial Step Index__ | Lowest step index used for the band (see Step table). |
 | __Final Step Index__ | Highest step index used for the band (see Step table). | 
 | __Last Step Index__ | Default step index or last step index used for the band (see Step table). Useful when the user gets back to a band. | 
-| __callback function__ | Pointer to the function that handles something when the band is selected. |
+| __callback function__ | Pointer to the function that handles something when the band is selected. Can be NULL if there is nothing to do.  |
 
 The implementation of the band information is shown below.  An array of band structure information is implemmented 
 
@@ -264,6 +264,15 @@ void changeBand(short idxBand)
 ## Mobile Application
 
 The reduced length of the Oled display might limit some VFO functionalities.  The goal of this mobile application is improve the VFO control and visualization. 
+
+
+### Bluetooth BLE (HM10 - HMSOft TineSine)
+
+The Bluetooth 4.0 used for this project is the HM10. It is very similar to the famous HC-05. 
+
+
+![HM10 - HMSOft TineSine]()
+
 
 
 ### Compile and deploy this mobile application
