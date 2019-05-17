@@ -21,7 +21,7 @@ By PU2CLR - Ricardo Lima Caratti  - April, 2019
 
 This project implements a VFO and BFO  using an Arduino with Si5351 signal generator. You can controll the VFO using an encoder and also a SmartPhone via a mobile application developed here for this purpose. 
 
-The Si5351 is an I2C configurable clock generator that is very appropriate for receivers and transceivers projects in amateur radio applications. See more on [Silicon Labs documentation](https://www.silabs.com/documents/public/data-sheets/Si5351-B.pdf).
+The heart of this VFO is the component Si5351. It is an I2C configurable clock generator that is very appropriate for receivers and transceivers projects in amateur radio applications. It has three outputs that you can get three distinct frequencies at the same time. A great feature of the Si5351A is the possibility of using it with a microcontroller or platform like Arduino, PIC family and others. See more on [Silicon Labs documentation](https://www.silabs.com/documents/public/data-sheets/Si5351-B.pdf).
 
  This project uses two outputs of the Si5351.  The VFO  uses the output 0 (CLK0) and can oscillate from 100KHz to 160MHz. The BFO uses the output 1 (CLK1) of Si5351 and it was configured to oscillate from 452KHz to 458KHz (you can modigy the BFO range to any other from 8KHz to 160MHz).  
 
