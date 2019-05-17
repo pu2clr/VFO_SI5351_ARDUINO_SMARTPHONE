@@ -61,18 +61,20 @@ The user can control the VFO and BFO by using three buttons (bands, steps and VF
 The VFO and BFO project cen be easily modified to adapt it better to your needs. 
 The main feature of the Sketch is the table of band. You can modify the amount of bands and ranges. The band information is shown below. 
  
-- __Band name__ - Band name that will show on display;
-- __Initial Freq.__ -  Lowest band frequency (1/100 Hz);
-- __Final Freq.__ - highest frequency band (1/100 Hz);
-- __Last Freq.__ - Store the current frequency. Useful when the user switches the band and get back to it later (it starts with minFreq value);
-- __offset__ - Consider an IF offset.  The VFO shows on the display the real frequency of the station and makes the signal generator to oscillate considering the IF used by the radio design (1/100 Hz);
-- __Freq Unit__ - Frequency unit that will be shown on the display for the current band;
-- __Divider__ - Divider used to reduce the number of digits in the display;
-- __decimals__ - number of decimal places (precision);
-- __Initial Step Index__ - Lowest step index used for the band (see Step table)
-- __Final Step Index__ - Highest step index used for the band (see Step table) 
-- __Last Step Index__ - Default step index or last step index used for the band (see Step table). Useful when the user gets back to a band. 
-- __callback function__ - pointer to the function that handles something when the band is selected
+| Band Information | Desription | 
+| ---------------- | ---------- | 
+| __Band name__ | Band name that will show on display. |
+| __Initial Freq.__ |  Lowest band frequency (1/100 Hz). |
+| __Final Freq.__ | highest frequency band (1/100 Hz). |
+| __Last Freq.__ | Store the current frequency. Useful when the user switches the band and get back to it later (it starts with minFreq value). |
+| __offset__ | Consider an IF offset.  The VFO shows on the display the real frequency of the station and makes the signal generator to oscillate considering the IF used by the radio design (1/100 Hz). |
+| __Freq Unit__ | Frequency unit that will be shown on the display for the current band. |
+| __Divider__ | Divider used to reduce the number of digits in the display. |
+| __decimals__ | number of decimal places (precision). |
+| __Initial Step Index__ | Lowest step index used for the band (see Step table). |
+| __Final Step Index__ | Highest step index used for the band (see Step table). | 
+| __Last Step Index__ | Default step index or last step index used for the band (see Step table). Useful when the user gets back to a band. | 
+| __callback function__ | Pointer to the function that handles something when the band is selected. |
 
 The implementation of the band information is shown below.  An array of band structure information is implemmented 
 
