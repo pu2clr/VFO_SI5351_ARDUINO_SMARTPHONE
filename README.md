@@ -223,6 +223,7 @@ void defultFinishBand()
 
 ```
 
+
 The code below shows the use of callback function when the use changes the band
 
 ```cpp
@@ -240,6 +241,7 @@ The code below shows the use of callback function when the use changes the band
     elapsedButton = millis();
   }
 ```  
+
 
 ## Mobile Application
 
