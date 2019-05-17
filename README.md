@@ -176,8 +176,7 @@ Step step[] = {
 ### Callback functions
 
 This sketch uses callback functions to complement specific actions for a specific band.
-For example, you might need to turn a LED on, start a relay or set up a filter when yiu select a band. 
-If the device that will use this VFO/BFO has different behaviours for different band, you might want use callback functions.  See Band table for more information. 
+For example, you might need to turn a LED on, start a relay or set up a filter when you select a particular band.  If the device that will use this VFO/BFO has different behaviours for different band, you might want to use callback functions.  See Band table for more information. 
 
 
 The code below shows the callback functions declaration
