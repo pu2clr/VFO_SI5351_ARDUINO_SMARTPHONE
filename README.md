@@ -192,7 +192,7 @@ void fmBroadcast();      // See implementation later.
 void defultFinishBand(); // 
 ```
 
-The callback functions above are referenced in band database (see Band band[]) above.
+The callback functions above are referenced in band database (see table of bands -  array band[]) above.
 
 
 ```cpp
