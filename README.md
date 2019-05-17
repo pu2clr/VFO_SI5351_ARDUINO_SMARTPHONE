@@ -45,7 +45,7 @@ The user can control the VFO and BFO by using three buttons (bands, steps and VF
 
 ### Simple Smartphone Layout
 
-[Smartphone Layout - iPhone](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/smartphone_00.png)
+![Smartphone Layout - iPhone](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/smartphone_00.png)
 
 
 
