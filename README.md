@@ -268,7 +268,8 @@ The reduced length of the Oled display might limit some VFO functionalities.  Th
 
 ### Bluetooth BLE (HM10 - HMSOft TineSine)
 
-The Bluetooth 4.0 used here is the HM10 (HMSoft). It is very similar to the famous HC-05. The photos below show the HM10 Bluetooth.
+The Bluetooth 4.0 used here is the HM10 (TinySine). It is very similar to the famous HC-05. The photos below show the HM10 Bluetooth.
+This kind of Bluetooth works well on iOs and Android based device.
 
 
 ![HM10 - HMSOft TineSine 01](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/BT01BLE.png)
