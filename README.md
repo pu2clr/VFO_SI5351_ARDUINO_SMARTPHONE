@@ -90,22 +90,23 @@ typedef struct
 ```
 
 The code below implements the band table of the VFO for a hypothetical radio. 
-The values amBroadcast and  fmBroadcast are points to functions that will execute some specific actions for the band. When the value is NULL, no action will be executed.  
+The hypothetical radio used as an example here has 10 bands. Each band has a frequency range, a default frequency, an IF offset, a unit used for the band (MHz or KHz), a divider to convert the unit (from 1/100Hz to KHz or MHz), decimal digits used for the band (precision), minimum step used for the band (index), maximum step used for the band, default step index and a pointer to function that will be executed when the band is selected (or NULL if no action is needed).  The values amBroadcast, fmBroadcast and defultFinishBand are pointers to functions that will execute some specific actions for the band. When the value is NULL, no action will be executed.  You might need change these values depending on your radio design. 
 
 ```cpp
 // Band database. You can change the band ranges if you need.
 // The unit of frequency here is 0.01Hz (1/100 Hz). See Etherkit Library at https://github.com/etherkit/Si5351Arduino
-Band band[] = {
-    {"MW  ", 50000000LLU, 170000000LLU, 45500000LU, "KHz", 100000.0f, 0, 3, 6, 5, amBroadcast},
-    {"SW1 ", 170000000LLU, 1000000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 6, 3, amBroadcast},
-    {"SW2 ", 1000000000LLU, 2000000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 6, 3, amBroadcast},
-    {"SW3 ", 2000000000LLU, 3000000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 6, 3, amBroadcast},
-    {"VHF1", 3000000000LLU, 7600000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 7, 3, NULL},
-    {"FM  ", 7600000000LLU, 10800000000LLU, 1075000000LLU, "MHz", 100000000.0f, 2, 6, 8, 7, fmBroadcast},
-    {"AIR ", 10800000000LLU, 13700000000LLU, 1075000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, NULL},
-    {"VHF2", 13700000000LLU, 14400000000LLU, 1075000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, NULL},
-    {"2M  ", 14400000000LLU, 15000000000LLU, 1075000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, NULL},
-    {"VFH3", 15000000000LLU, 16000000000LLU, 1075000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, NULL}};
+ Band band[] = {
+     {"MW  ", 50000000LLU, 170000000LLU, 50000000LLU, 45500000LU, "KHz", 100000.0f, 0, 3, 6, 5, amBroadcast},
+     {"SW1 ", 170000000LLU, 1000000000LLU, 170000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 6, 3, amBroadcast},
+     {"SW2 ", 1000000000LLU, 2000000000LLU, 1000000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 6, 3, amBroadcast},
+     {"SW3 ", 2000000000LLU, 3000000000LLU, 2000000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 6, 3, amBroadcast},
+     {"VHF1", 3000000000LLU, 7600000000LLU, 3000000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 7, 3, defultFinishBand},
+     {"FM  ", 8600000000LLU, 10800000000LLU, 8600000000LLU, 1075000000LLU, "MHz", 100000000.0f, 2, 5, 8, 7, fmBroadcast},
+     {"AIR ", 10800000000LLU, 13700000000LLU, 10800000000LLU, 1070000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, NULL},
+     {"VHF2", 13700000000LLU, 14400000000LLU, 13700000000LLU, 1070000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, defultFinishBand},
+     {"2M  ", 14400000000LLU, 15000000000LLU, 14400000000LLU, 1070000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, defultFinishBand},
+     {"VFH3", 15000000000LLU, 16000000000LLU, 15000000000LLU, 1070000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, defultFinishBand}};
+ // Calculate the last element position (index) of the array band
 ```
 
 
@@ -118,24 +119,18 @@ Band band[] = {
 | SW1  | 170000000 | 1000000000 | 170000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 | amBroadcast |
 | SW2  | 1000000000 | 2000000000 | 1000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 | amBroadcast |
 | SW3  | 2000000000 | 3000000000 | 2000000000 | 45500000  | KHz | 100000 | 2 | 2 | 6 | 3 | amBroadcast |
-| VHF1 | 3000000000 | 7600000000 | 3000000000 | 45500000  | KHz | 100000 | 2 | 2 | 7 | 3 | NULL |
+| VHF1 | 3000000000 | 7600000000 | 3000000000 | 45500000  | KHz | 100000 | 2 | 2 | 7 | 3 | defultFinishBand |
 | FM   | 7600000000 | 10800000000 | 7600000000 | 1075000000  | MHz |  100000000 | 1 | 6 | 8 | 7 | fmBroadcast |
 | AIR  | 10800000000 | 13700000000 | 10800000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 | NULL |
-| VHF2 | 13700000000 | 14400000000 | 13700000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 | NULL |
-| 2M  | 14400000000 | 15000000000 | 14400000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 | NULL |
-| VFH3 | 15000000000 | 16000000000 | 15000000000 | 1075000000  | MHz| 100000000 | 2 | 2 | 8| 5 | NULL |
+| VHF2 | 13700000000 | 14400000000 | 13700000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 | defultFinishBand |
+| 2M  | 14400000000 | 15000000000 | 14400000000 | 1075000000  | MHz | 100000000 | 2 | 2 | 8 | 5 | defultFinishBand |
+| VFH3 | 15000000000 | 16000000000 | 15000000000 | 1075000000  | MHz| 100000000 | 2 | 2 | 8| 5 | defultFinishBand |
 
-
-{table-plus:border=0|class=''}
-|| header1 || header 2 ||
-| cell11 | cell 12 | 
-| cell 21 | cell 22 |
-{table-plus}
 
 
 ### Step Table 
 
-The step table is implemented by the code below.  Each band uses a subset of the band table. This will depend on the characteristics of the band.
+The step table is implemented by the code below.  Each band uses a subset of the step table. This will depend on the characteristics of the band.
 
 
 ```cpp
@@ -205,16 +200,27 @@ The callback functions above are referenced in band database (see Band band[]) a
 // Doing something spefict for MW band
 void amBroadcast()
 {
-  // TO DO
-  STATUSLED(HIGH); // Just testing if it is working - Turn LED ON
+  digitalWrite(AM_LED, HIGH);      // Turn ON the AM LED
+  // DO SOMETHING ELSE
 }
 
 // Doing something spefict for FM
+// Example: set Pin 14 of the CD2003GP to HIGH; turn FM LED on etc
 void fmBroadcast()
 {
-  // TO DO
-  STATUSLED(LOW); // Just testing if it is working - Turn LED OFF
+  digitalWrite(FM_LED, HIGH);       // Turn ON the FM LED
+  // DO SOMETHING ELSE  
 }
+
+// Defaul action 
+// It is another callback function that can be called when a specific band is selected 
+void defultFinishBand()
+{
+  digitalWrite(FM_LED, LOW); // Turno the FM LED OFF
+  digitalWrite(AM_LED, LOW); // Turno the AM LED OFF
+  // DO SOMETHING ELSE  
+}
+
 ```
 
 The code below shows the use of callback function when the use changes the band

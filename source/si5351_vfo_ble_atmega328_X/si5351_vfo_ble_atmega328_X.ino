@@ -48,8 +48,8 @@ Rotary encoder = Rotary(ENCODER_PIN_A, ENCODER_PIN_B);
 #define MIN_BFO 45200000LU    // BFO minimum frequency
 
 #define CD2003GP_SWITCH_AM_FM 7 // Define Arduino Pin 10 to switch AM and FM on CD2003GO based radio (connected to PIN 14 on the CD2003GP)
-#define CD2003GP_AM_LED 8       // Indicate that the radio is working in AM mode
-#define CD2003GP_FM_LED 9       // Indicate that the radio is working in FM mode
+#define AM_LED 8       // Indicate that the radio is working in AM mode
+#define FM_LED 9       // Indicate that the radio is working in FM mode
 
 #define STATUS_LED 13 // Arduino status LED Pin 10
 #define STATUSLED(ON_OFF) digitalWrite(STATUS_LED, ON_OFF)
@@ -149,8 +149,8 @@ void setup()
 {
   // LED Pin
   pinMode(STATUS_LED, OUTPUT);
-  pinMode(CD2003GP_AM_LED, OUTPUT);
-  pinMode(CD2003GP_FM_LED, OUTPUT);
+  pinMode(AM_LED, OUTPUT);
+  pinMode(FM_LED, OUTPUT);
 
   // CD2003GP AM and FM controll switch
   pinMode(CD2003GP_SWITCH_AM_FM, OUTPUT);
@@ -340,31 +340,27 @@ void changeBand(short idxBand)
 // Callback implementation
 
 // Doing something spefict for MW band
-// Example: set Pin 14 of the CD2003GP to LOW; switch filter, turn AM LED on etc
 void amBroadcast()
 {
-  // TO DO
-  digitalWrite(CD2003GP_SWITCH_AM_FM, LOW); // The CD2003GP is seted to AM
-  digitalWrite(CD2003GP_AM_LED, HIGH);      // Turn ON the AM LED
+  digitalWrite(AM_LED, HIGH); // Turn ON the AM LED
+  // DO SOMETHING ELSE
 }
 
 // Doing something spefict for FM
-// Example: set Pin 14 of the CD2003GP to HIGH; turn FM LED on etc
 void fmBroadcast()
 {
-  // TO DO
-  digitalWrite(CD2003GP_SWITCH_AM_FM, HIGH); // The CD2003GP is seted to AM
-  digitalWrite(CD2003GP_FM_LED, HIGH);       // Turn ON the FM LED
+  digitalWrite(FM_LED, HIGH); // Turn ON the FM LED
+  // DO SOMETHING ELSE
 }
 
-// Defaul action 
-// It is another callback function that can be called when a specific band is selected 
+// Defaul action
+// It is another callback function that can be called when a specific band is selected
 void defultFinishBand()
 {
-  digitalWrite(CD2003GP_FM_LED, LOW); // Turno the FM LED OFF
-  digitalWrite(CD2003GP_AM_LED, LOW); // Turn the AM LED OFF
+  digitalWrite(FM_LED, LOW); // Turno the FM LED OFF
+  digitalWrite(AM_LED, LOW); // Turno the AM LED OFF
+  // DO SOMETHING ELSE
 }
-
 
 // Bluetooth communication
 
