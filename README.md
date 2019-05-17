@@ -66,12 +66,12 @@ The main feature of the Sketch is the table of band. You can modify the amount o
 - __Final Freq.__ - highest frequency band (1/100 Hz);
 - __Last Freq.__ - Store the current frequency. Useful when the user switches the band and get back to it later (it starts with minFreq value);
 - __offset__ - Consider an IF offset.  The VFO shows on the display the real frequency of the station and makes the signal generator to oscillate considering the IF used by the radio design (1/100 Hz);
-- __Freq Unit__ - Frequency unit that will be show on the display for the current band;
+- __Freq Unit__ - Frequency unit that will be shown on the display for the current band;
 - __Divider__ - Divider used to reduce the number of digits in the display;
-- __decimals__ - number of decimal places after the comma;
+- __decimals__ - number of decimal places (precision);
 - __Initial Step Index__ - Lowest step index used for the band (see Step table)
 - __Final Step Index__ - Highest step index used for the band (see Step table) 
-- __Last Step Index__ - Default step index or last step index used for the band (see Step table)
+- __Last Step Index__ - Default step index or last step index used for the band (see Step table). Useful when the user gets back to a band. 
 - __callback function__ - pointer to the function that handles something when the band is selected
 
 The implementation of the band information is shown below.  An array of band structure information is implemmented 
@@ -117,6 +117,9 @@ The hypothetical radio used as an example here has 10 bands. Each band has a fre
 
 ### Band Table 
 
+The table of bands implemented above for the hypothetical radio can be seen below. The values of Initial Step Index, Final Step Index and Default/Last Step index can be got from the Step table.  
+
+
 | Band name | Initial Freq.  | Final Freq. | Last Freq. | offset | Freq Unit | Divider | Dec. | Initial Step Index | Final Step Index | Default / Last Step index | Action Function |
 | --------- | ----------------------- | -------------------- | ---------------- | ---------------- | -----------------| --------------- |------------------ | ---------------- | ---------------- | -----------| -----------|  
 | MW   | 50000000 | 170000000 | 50000000 | 45500000 |  KHz | 100000 | 2 | 3 | 6 | 5 | amBroadcast |
@@ -134,7 +137,7 @@ The hypothetical radio used as an example here has 10 bands. Each band has a fre
 
 ### Step Table 
 
-The step table is implemented by the code below.  Each band uses a subset of the step table. This will depend on the characteristics of the band.
+Each band uses a subset of the table of steps. This will depend on the characteristics of the band. For example, usually, 5KHz and 10 KHz are more apropriated to MW band. For SW bands, you might want 1KHz, 5KHz and 10KHz. The step table is implemented by the code below.  
 
 
 ```cpp
@@ -146,6 +149,7 @@ typedef struct
 } Step;
 ```
 
+The code beloow implements an array of steps (Steps)
 
 ```cpp 
 // Steps database. You can change the Steps and numbers of steps here if you need.
@@ -161,6 +165,7 @@ Step step[] = {
     {"500KHz", 50000000}};
 ```
 
+The table of steps implemented above  can be seen below.
 
 
 | Step Index | Step name | Step Value (1/100 Hz) |
