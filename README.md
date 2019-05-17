@@ -74,7 +74,7 @@ The main feature of the Sketch is the table of band. You can modify the amount o
 - __Last Step Index__ - Default step index or last step index used for the band (see Step table)
 - __callback function__ - pointer to the function that handles something when the band is selected
 
-The implementation of the band information is shown below.  An array of band with this structure is implemmented 
+The implementation of the band information is shown below.  An array of band structure information is implemmented 
 
 ```cpp
 // Structure for Bands database
@@ -95,7 +95,7 @@ typedef struct
  } Band;
 ```
 
-The code below implements the band table of the VFO for a hypothetical radio. 
+The code below implements the band table (array) of the VFO for a hypothetical radio. 
 The hypothetical radio used as an example here has 10 bands. Each band has a frequency range, a default frequency, an IF offset, a unit used for the band (MHz or KHz), a divider to convert the unit (from 1/100Hz to KHz or MHz), decimal digits used for the band (precision), minimum step used for the band (index), maximum step used for the band, default step index and a pointer to function that will be executed when the band is selected (or NULL if no action is needed).  The values amBroadcast, fmBroadcast and defultFinishBand are pointers to functions that will execute some specific actions for the band. When the value is NULL, no action will be executed.  You might need change these values depending on your radio design. 
 
 ```cpp
@@ -114,8 +114,6 @@ The hypothetical radio used as an example here has 10 bands. Each band has a fre
      {"VFH3", 15000000000LLU, 16000000000LLU, 15000000000LLU, 1070000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, defultFinishBand}};
  // Calculate the last element position (index) of the array band
 ```
-
-
 
 ### Band Table 
 
