@@ -176,7 +176,7 @@ Step step[] = {
 ### Callback functions
 
 This sketch uses callback functions to complement specific actions for a specific band.
-For example, you might need to turn on a LED, start a relay or set up a filter when yiu select a band. 
+For example, you might need to turn a LED on, start a relay or set up a filter when yiu select a band. 
 If the device that will use this VFO/BFO has different behaviours for different band, you might want use callback functions.  See Band table for more information. 
 
 
@@ -185,10 +185,11 @@ The code below shows the callback functions declaration
 ```cpp
 // Callback functions declarations
 // Depending on the selected band, you may want to perform specific actions
-// The functions declared below will do something for MW and FM BAND. See implementation later.
+// The functions declared below will do something for AM and FM BAND. See implementation later.
 // You can implement callback function for other bands
-void amBroadcast(); // See implementation later.
-void fmBroadcast(); // See implementation later.
+void amBroadcast();      // See implementation later.
+void fmBroadcast();      // See implementation later.
+void defultFinishBand(); // 
 ```
 
 The callback functions above are referenced in band database (see Band band[]) above.

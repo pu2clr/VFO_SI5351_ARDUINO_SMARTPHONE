@@ -63,7 +63,7 @@ Si5351 si5351;
 // You can implement callback function for other bands
 void amBroadcast();      // See implementation later.
 void fmBroadcast();      // See implementation later.
-void defultFinishBand(); //
+void defultFinishBand(); // 
 
 // Structure for Bands database
 typedef struct
