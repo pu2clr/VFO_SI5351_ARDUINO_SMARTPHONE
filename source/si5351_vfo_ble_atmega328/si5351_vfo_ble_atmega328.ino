@@ -79,7 +79,7 @@ typedef struct
   short initialStepIndex; // Index to the initial step of incrementing
   short finalStepIndex;   // Index to the final step of incrementing
   short lastStepIndex;    // Index to the last step used (initial index value same index defult)
-  void (*fstart)(void);   // pointer to the function that will handle specific things for the band immediately after the band is selected
+  void (*doSmth)(void);   // pointer to the function that will handle specific things for the band immediately after the band is selected
  } Band;
 
 // Band database. You can change the band ranges if you need.
@@ -316,8 +316,8 @@ void changeBand(short idxBand)
   currentStep = band[idxBand].lastStepIndex;
 
   // Call callback function if exist something to do for the specific band (current band)
-  if (band[idxBand].fstart != NULL)
-    (band[idxBand].fstart)();
+  if (band[idxBand].doSmth != NULL)
+    (band[idxBand].doSmth)();
 
   currentBand = idxBand;
   isFreqChanged = true;

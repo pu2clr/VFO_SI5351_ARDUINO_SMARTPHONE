@@ -66,7 +66,7 @@ The main feature of the Sketch is the table of band. You can modify the amount o
 - __Initial Step Index__ - Lowest step index used for the band (see Step table)
 - __Final Step Index__ - Highest step index used for the band (see Step table) 
 - __Last Step Index__ - Default step index or last step index used for the band (see Step table)
-- __callback function__ - point to the function that handles specific things for the band
+- __callback function__ - pointer to the function that handles something when the band is selected
 
 The implementation of the band information is shown below.  An array of band with this structure is implemmented 
 
@@ -77,7 +77,7 @@ typedef struct
   char *name;
   uint64_t minFreq;       // Min. frequency value for the band (unit 0.01Hz)
   uint64_t maxFreq;       // Max. frequency value for the band (unit 0.01Hz)
-  uint64_t lastFreq;      // Store the current frequency before change to other band (it starts with minFreq value)
+  uint64_t lastFreq;      // Store the current frequency before change to other band (starts with minFreq value)
   long long offset;
   char *unitFreq;         // MHz or KHz
   float divider;          // value that will be the divider of current clock (just to present on display)
@@ -85,7 +85,7 @@ typedef struct
   short initialStepIndex; // Index to the initial step of incrementing
   short finalStepIndex;   // Index to the final step of incrementing
   short lastStepIndex;    // Index to the last step used (initial index value same index defult)
-  void (*fstart)(void);   // pointer to the function that will handle specific things for the band immediately after the band is selected
+  void (*doSmth)(void);   // pointer to the function that will handle specific things for the band immediately after the band is selected
  } Band;
 ```
 
@@ -228,19 +228,26 @@ void defultFinishBand()
 The code below shows the use of callback function when the use changes the band
 
 ```cpp
- if (digitalRead(BUTTON_BAND) == HIGH && (millis() - elapsedButton) > MIN_ELAPSED_TIME)
-  {
-    currentBand = (currentBand < lastBand) ? (currentBand + 1) : 0; // Is the last band? If so, go to the first band (AM). Else, next band.
-    vfoFreq = band[currentBand].minFreq;
-    currentStep = band[currentBand].starStepIndex;
+// It is executed when a new band is selected.
+void changeBand(short idxBand)
+{
+  // Save current status of the current band
+  band[currentBand].lastStepIndex = currentStep;
+  band[currentBand].lastFreq = vfoFreq;
 
-    // Call callback function if exist something to do for the specific  band
-    if (band[currentBand].f != NULL)
-      (band[currentBand].f)();
+  // Now change the current band  
+  currentBand = idxBand;
 
-    isFreqChanged = true;
-    elapsedButton = millis();
-  }
+  vfoFreq = band[idxBand].lastFreq;
+  currentStep = band[idxBand].lastStepIndex;
+
+  // Call callback function if exist something to do for the specific band (current band)
+  if (band[idxBand].fstart != NULL)
+    (band[idxBand].fstart)();
+
+  currentBand = idxBand;
+  isFreqChanged = true;
+}
 ```  
 
 
