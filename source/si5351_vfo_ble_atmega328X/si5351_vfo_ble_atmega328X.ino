@@ -323,17 +323,17 @@ void changeBand(short idxBand)
   band[currentBand].lastStepIndex = currentStep;
   band[currentBand].lastFreq = vfoFreq;
 
-  // Now change the current band  
+  // Now change the current band
   currentBand = idxBand;
 
+  // Get back last information stored for this band.
   vfoFreq = band[idxBand].lastFreq;
   currentStep = band[idxBand].lastStepIndex;
 
-  // Call callback function if exist something to do for the specific band (current band)
+  // Call callback function if exist something to do for this band (current band)
   if (band[idxBand].doSmth != NULL)
     (band[idxBand].doSmth)();
 
-  currentBand = idxBand;
   isFreqChanged = true;
 }
 
