@@ -137,7 +137,7 @@ The table of bands implemented above for the hypothetical radio can be seen belo
 
 ### Step Table 
 
-Each band uses a subset of the table of steps. This will depend on the characteristics of the band. For example, usually, 5KHz and 10 KHz are more apropriated to MW band. For SW bands, you might want 1KHz, 5KHz and 10KHz. The step table is implemented by the code below.  
+Each band uses a subset of the table of steps. It will depend on the characteristics of the band. For example: usually, 5KHz and 10 KHz are more apropriated to MW band. Working on SW bands, you might want 1KHz, 5KHz and 10KHz. The step table is implemented by the code below.  
 
 
 ```cpp
@@ -184,8 +184,8 @@ The table of steps implemented above  can be seen below.
 
 ### Callback functions
 
-This sketch uses callback functions to complement specific actions for a specific band.
-For example, you might need to turn a LED on, start a relay or set up a filter when you select a particular band.  If the device that will use this VFO/BFO has different behaviours for different band, you might want to use callback functions.  See Band table for more information. 
+This sketch uses callback functions to complement specific actions for a specific band. 
+For example, you might need to turn a LED on, start a relay or set up a filter when you select a particular band.  If the device that will use this VFO/BFO has different behaviours for different band, you might want to use callback functions.  If you do not need to use this features, you can set this data (parameter) with NULL in table of bands. See Band table for more information. 
 
 
 The code below shows the callback functions declaration
