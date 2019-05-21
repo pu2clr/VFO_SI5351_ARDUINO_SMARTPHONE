@@ -12,7 +12,7 @@ By PU2CLR - Ricardo Lima Caratti  - April, 2019
    2. [Step Table](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#step-table)
    3. [Callback Functions](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#callback-functions)
 5. [Mobile Application](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#mobile-application)
-6. [Videos]()
+6. [Videos](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#videos)
 
 
 ## Introduction
@@ -314,7 +314,7 @@ Compile and run the application
 
 
 
-## Vídeos 
+## Videos 
 
 - [VFO and BFO project test with an inexpencive radio based on CD2003GP](https://youtu.be/_KgBc6vYWLg)
 - [Testing the VFO with a CD2003GM HOMEBREW FM RECEIVER](https://youtu.be/JfgRjDK8LTE)
