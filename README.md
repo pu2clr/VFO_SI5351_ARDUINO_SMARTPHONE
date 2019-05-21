@@ -40,6 +40,9 @@ The user can control the VFO and BFO by using three buttons (bands, steps and VF
 | ![Display photo 1](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_01.png)| ![Displau photo 2](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_02.png) |
 | ![Display photo 3](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_03.png)| ![Displau photo 4](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/OLED_04.png) |
 
+The display layout can be modified easily by changing the __DialDisplay() function__ on Arduino sketch. 
+
+
 
 ### Simple Smartphone Layout
 
@@ -47,6 +50,9 @@ The user can control the VFO and BFO by using three buttons (bands, steps and VF
 | ------ | ------- | 
 | ![Smartphone Layout - iPhone](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/smartphone_00.png) | ![Smartphone Layout - iPhone](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/smartphone_01.png) | 
 | ![Smartphone Layout - iPhone](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/smartphone_02.png) | - | 
+
+
+See more detail about the [Mobile Application](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE#mobile-application) below.
 
 
 ## Schematic - Arduino Atmega328 (UNO, Pro Mini, Nano etc)
