@@ -490,7 +490,7 @@ void loop()
       changeBand(0);   // Band MW (AM)
       break;
     case 'f':
-      changeBand(6);  // Band FM
+      changeBand(5);  // Band FM
       break;
     case '#':
       // Follow the protocol

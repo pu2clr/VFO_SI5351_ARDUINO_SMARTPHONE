@@ -90,7 +90,7 @@ typedef struct
      {"SW2 ", 1000000000LLU, 2000000000LLU, 1000000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 6, 3, amBroadcast},
      {"SW3 ", 2000000000LLU, 3000000000LLU, 2000000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 6, 3, amBroadcast},
      {"VHF1", 3000000000LLU, 7600000000LLU, 3000000000LLU, 45500000LU, "KHz", 100000.0f, 2, 1, 7, 3, defultFinishBand},
-     {"FM  ", 8600000000LLU, 10800000000LLU, 8600000000LLU, 1075000000LLU, "MHz", 100000000.0f, 2, 5, 8, 7, fmBroadcast},
+     {"FM  ", 8600000000LLU, 10800000000LLU, 8600000000LLU, 1070000000LLU, "MHz", 100000000.0f, 2, 5, 8, 7, fmBroadcast},
      {"AIR ", 10800000000LLU, 13700000000LLU, 10800000000LLU, 1070000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, defultFinishBand},
      {"VHF2", 13700000000LLU, 14400000000LLU, 13700000000LLU, 1070000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, defultFinishBand},
      {"2M  ", 14400000000LLU, 15000000000LLU, 14400000000LLU, 1070000000LLU, "MHz", 100000000.0f, 3, 2, 8, 5, defultFinishBand},
@@ -489,7 +489,7 @@ void loop()
       changeBand(0);   // Band MW (AM)
       break;
     case 'f':
-      changeBand(6);  // Band FM
+      changeBand(5);  // Band FM
       break;
     case '#':
       // Follow the protocol
