@@ -325,12 +325,14 @@ void changeBand(short idxBand)
 void amBroadcast()
 {
   digitalWrite(AM_LED, HIGH); // Turn ON the AM LED
+  digitalWrite(FM_LED, LOW);
   // DO SOMETHING ELSE
 }
 
 // Doing something spefict for FM
 void fmBroadcast()
 {
+  digitalWrite(AM_LED, LOW);
   digitalWrite(FM_LED, HIGH); // Turn ON the FM LED
   // DO SOMETHING ELSE
 }
