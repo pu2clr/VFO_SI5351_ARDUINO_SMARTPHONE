@@ -43,7 +43,6 @@ SoftwareSerial ble(BLUETOOTH_TX, BLUETOOTH_RX);
 #define CENTER_BFO 45500000LU // BFO centeral frequency
 #define MIN_BFO 45200000LU    // BFO minimum frequency
 
-#define CD2003GP_SWITCH_AM_FM 7 // Define Arduino Pin 10 to switch AM and FM on CD2003GO based radio (connected to PIN 14 on the CD2003GP)
 #define AM_LED 8       // Indicate that the radio is working in AM mode
 #define FM_LED 9       // Indicate that the radio is working in FM mode
 
@@ -148,9 +147,6 @@ void setup()
   pinMode(STATUS_LED, OUTPUT);
   pinMode(AM_LED, OUTPUT);
   pinMode(FM_LED, OUTPUT);
-
-  // CD2003GP AM and FM controll switch
-  pinMode(CD2003GP_SWITCH_AM_FM, OUTPUT);
 
   // Encoder pins
   pinMode(ENCODER_PIN_A, INPUT);
