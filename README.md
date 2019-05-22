@@ -216,17 +216,19 @@ The callback functions above are referenced in band database (see table of bands
 // Doing something spefict for MW band
 void amBroadcast()
 {
-  digitalWrite(AM_LED, HIGH);      // Turn ON the AM LED
+  digitalWrite(AM_LED, HIGH); // Turn ON the AM LED
+  digitalWrite(FM_LED, LOW);
   // DO SOMETHING ELSE
 }
 
 // Doing something spefict for FM
-// Example: set Pin 14 of the CD2003GP to HIGH; turn FM LED on etc
 void fmBroadcast()
 {
-  digitalWrite(FM_LED, HIGH);       // Turn ON the FM LED
-  // DO SOMETHING ELSE  
+  digitalWrite(AM_LED, LOW);
+  digitalWrite(FM_LED, HIGH); // Turn ON the FM LED
+  // DO SOMETHING ELSE
 }
+
 
 // Defaul action 
 // It is another callback function that can be called when a specific band is selected 
