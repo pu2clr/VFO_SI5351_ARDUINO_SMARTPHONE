@@ -317,6 +317,9 @@ This applications was build using the [Apache Cordova](https://cordova.apache.or
     $ cordova plugin add cordova-plugin-bluetooth-serial
 
 
+See more about __cordova-plugin-bluetooth-serial__ [here](https://www.npmjs.com/package/cordova-plugin-bluetooth-serial).
+
+
 ### Build and Deploy
 
 Compile and run the application
