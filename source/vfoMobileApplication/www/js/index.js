@@ -4,6 +4,7 @@
   This code was built using piece of example code suggested by the plug-blue-serial-plugin.
   See plug-blue-serial-plugin on: https://www.npmjs.com/package/cordova-plugin-bluetooth-serial
 
+  
   By PU2CLR - Ricardo Lima Caratti  - April, 2019 
 */
 
