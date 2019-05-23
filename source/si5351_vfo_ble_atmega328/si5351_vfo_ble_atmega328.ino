@@ -162,6 +162,7 @@ void setup()
 
   // The sistem is alive
   blinkLed(STATUS_LED, 100);
+
   STATUSLED(LOW);
   // Initiating the OLED Display
   display.begin(&Adafruit128x64, I2C_ADDRESS);
@@ -192,6 +193,7 @@ void setup()
 
   delay(100);
 }
+
 
 // Blink the STATUS LED
 void blinkLed(int pinLed, int blinkDelay)

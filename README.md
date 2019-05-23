@@ -287,6 +287,13 @@ This kind of Bluetooth works well on iOs and Android based device.
 ![HM10 - HMSOft TineSine 02](https://github.com/pu2clr/VFO_SI5351_ARDUINO_SMARTPHONE/blob/master/images/BT02BLE.png)
 
 
+#### HM10 Documentation
+
+* [HM-10 Bluetooth 4 BLE Modules - Martyn Currey](http://www.martyncurrey.com/hm-10-bluetooth-4ble-modules/)
+* [BLE CENTRAL - HM-10 BLE Module](http://blog.blecentral.com/2015/05/05/hm-10-peripheral/)
+
+
+
 ### Compile and deploy this mobile application
 
 Please copy the project to a local folder and follow the steps bellow
@@ -317,7 +324,10 @@ This applications was build using the [Apache Cordova](https://cordova.apache.or
     $ cordova plugin add cordova-plugin-bluetooth-serial
 
 
-See more about __cordova-plugin-bluetooth-serial__ [here](https://www.npmjs.com/package/cordova-plugin-bluetooth-serial).
+#### cordova-plugin-bluetooth-serial information
+
+* [Bluetooth Serial Plugin for PhoneGap](https://www.npmjs.com/package/cordova-plugin-bluetooth-serial)
+* [Bluetooth Serial Plugin for PhoneGap - github](https://github.com/don/BluetoothSerial)
 
 
 ### Build and Deploy
