@@ -1,5 +1,16 @@
+/* 
+  Bluetooth remote control for VFO.
+  
+  This code was built using piece of example code suggested by the plug-blue-serial-plugin.
+  See plug-blue-serial-plugin on: https://www.npmjs.com/package/cordova-plugin-bluetooth-serial
+
+  By PU2CLR - Ricardo Lima Caratti  - April, 2019 
+*/
+
 /* jshint quotmark: false, unused: vars, browser: true */
 /* global cordova, console, $, bluetoothSerial, _, refreshButton, deviceList, previewColor, red, green, blue, disconnectButton, connectionScreen, colorScreen, rgbText, messageDiv */
+
+
 'use strict';
 
 var objBand;
